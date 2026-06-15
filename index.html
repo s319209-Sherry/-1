@@ -1,0 +1,1660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Loun edit </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+    <!-- 載入 Bootstrap 圖示 -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+      body {
+        scroll-behavior: smooth; /* 頁面錨點平滑捲動 */
+        font-family: Arial, sans-serif; /* 網站主要字體 */
+      }
+      
+      /* 導覽頁 */
+      .navbar {
+        background:#ffd6e0;
+        min-height:70px;
+      }
+
+      .nav-link {
+        color:black !important;
+      }
+
+      .navbar-brand {
+        color: black !important;
+      }
+
+/*  Logo  */
+      .logo{
+  height:50px;
+  width:auto;
+  transition:.3s;
+}
+
+.logo:hover{
+  transform:scale(1.05);
+}
+
+.navbar-brand img{
+  transition:.3s;
+}
+
+/* 滑鼠移到 Logo 圖片時放大 */
+.navbar-brand img:hover{
+  transform:scale(1.05);
+}
+
+      /* 跑馬燈 */
+.marquee-container{
+  width:100%;
+  overflow:hidden;
+  background:white;
+  color:#f8b8c7;
+  font-weight:bold;
+  padding:10px 0;
+
+  position:fixed;
+  top:70px;  
+
+  left:0;
+  z-index:998;
+
+  border-top:1px solid #f5d6df;
+  border-bottom:1px solid #f5d6df;
+}
+
+.marquee-text{
+  display:inline-block;
+  white-space:nowrap;
+  animation:marquee 18s linear infinite;
+}
+ /* 跑馬燈動畫效果 由右往左無限循環移動 */
+@keyframes marquee{
+  0%{
+    transform:translateX(100%);
+  }
+  100%{
+    transform:translateX(-100%);
+  }
+}
+    
+      
+      /* 首頁 */
+      .hero {
+        height: 100vh;
+        padding-top:170px;
+        background:url(背景2.jpg)center no-repeat;
+        background-size: 70%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-align: center;
+      }
+      
+      .hero h1 {
+        font-size: 60px;
+        font-weight: bold;
+        color: #ffb6c1;
+        margin-top: 100px; /* 往下移 */
+      }
+
+      /* 品牌理念 */
+
+      .about-banner{
+        text-align:center;
+      }
+
+      .about-banner img{
+        max-width:80%;
+        height:auto;
+      }
+
+      .about-banner h2{
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        color: black;
+        font-size: 40px;
+        font-weight: bold;
+
+        margin: 0;
+      }
+
+      .about-subtitle{
+        text-align: center;
+        color: #d8a7b1;
+        letter-spacing: 3px;
+        margin-top: 40px;
+        margin-bottom: 30px;
+      }
+
+      .about-text{
+        max-width: 800px;
+        margin: 60px auto 0;
+      }
+
+      .about-text p{
+        line-height: 2.2;
+        font-size: 17px;
+        color: #555;
+        text-align: justify;
+      }
+      
+      /* 全區塊設定 */
+      section {
+        padding: 100px 0; /* 每個區塊上下留白 */
+      }
+      
+      h2{
+        color: black;
+        font-size: 40px;
+        font-weight: bold;
+      }
+      /* Product */
+      .card {
+        border: none;
+        transition: 0.3s; /* 滑鼠動畫效果 */
+      }
+      
+      .card:hover {
+        transform: translateY(-10px); /* 卡片向上浮起 */
+      }
+
+      .product h2{
+        color: black;
+        font-size: 40px;
+        font-weight: bold;
+      }
+
+     .contact {
+        background: #fff;
+      }
+
+     .contact h2 {
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+     .contact p {
+        color: #555;
+      }
+
+/* 門市資訊 */
+.store-card{
+  background: #ffffff;
+  border-radius: 30px;
+  padding: 50px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+}
+
+.store-contact{
+  padding-right: 20px;
+}
+
+.contact-item{
+  margin-bottom: 25px;
+}
+
+.contact-item h5{
+  color: #d98ca0;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.contact-item p{
+  color: #666;
+  margin: 0;
+  line-height: 1.8;
+}
+
+.store-description{
+  max-width: 900px;
+  margin: 60px auto 0;
+  text-align: center;
+}
+
+.store-description h4{
+  color: #d98ca0;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.store-slogan{
+  color: #b89aa3;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+}
+
+.store-description p{
+  line-height: 2;
+  color: #666;
+}
+
+     /* Store */
+
+.store-contact{
+  line-height: 2;
+  font-size: 17px;
+  color: #555;
+}
+
+.store-contact strong{
+  color: #d98ca0;
+}
+
+.store-image img{
+  width: 100%;
+  max-width: 700px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.store-info{
+  max-width: 800px;
+  margin: 60px auto 0;
+}
+
+.store-info h4{
+  color: #d98ca0;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.store-info p{
+  line-height: 1.8;
+  color: #666;
+}
+
+/* After-Sales Service */
+
+.service-content{
+  max-width: 900px;
+  margin: auto;
+  line-height: 2;
+  color: #555;
+}
+
+.service-content h4{
+  color: #d98ca0;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 35px;
+  margin-bottom: 15px;
+}
+
+.service-content ul{
+  padding-left: 25px;
+}
+
+.service-content li{
+  margin-bottom: 10px;
+}
+
+.service-box{
+  background: #fff;
+  border-radius: 15px;
+  padding: 25px;
+  margin-top: 30px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.service-ending{
+  text-align: center;
+  margin-top: 40px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #d98ca0;
+}
+
+/* 手鍊設計畫布 */
+#braceletCanvas{
+
+position:relative;
+
+width:700px;
+height:350px;
+
+margin:auto;
+
+background:white;
+
+border-radius:20px;
+
+box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+overflow:hidden;
+
+border:2px dashed #e8a8b8; 
+
+}
+
+.bracelet-base{
+
+position:absolute;
+
+top:50%;
+left:50%;
+
+transform:translate(-50%,-50%);
+
+width:500px;
+
+}
+
+#charmArea{
+  position:absolute;
+  top:110px;
+  left:170px;
+
+  width:330px;
+  height:120px;
+}
+
+.selectedCharm{
+  width:95px;
+  height:95px;
+  object-fit:contain;
+  transition:.3s;
+  cursor:pointer;
+}
+
+.selectedCharm:hover{
+
+transform:scale(1.15);
+
+}
+
+.charm-box{
+
+display:flex;
+
+justify-content:center;
+
+flex-wrap:wrap;
+
+gap:20px;
+
+max-width:1000px;
+
+margin:40px auto;
+
+padding:30px;
+
+background:white;
+
+border-radius:25px;
+
+box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+}
+
+.charm-box img{
+
+width:120px;
+height:120px;
+
+padding:10px;
+
+background:white;
+
+border-radius:15px;
+
+object-fit:contain;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.charm-box img:hover{
+
+transform:translateY(-5px);
+
+box-shadow:0 8px 20px rgba(232,168,184,.3);
+
+}
+
+/* 商品推薦遊戲 */
+
+#answerArea button{
+  min-width:140px;
+}
+
+#resultArea img{
+  box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+/* Account */
+
+  .login-box{
+  max-width: 550px;
+  margin: auto;
+  background: white;
+  padding: 35px;
+  border-radius: 20px;
+  box-shadow: 0 5px 20px rgba(0,0,0,.08);
+}
+
+.login-box h4{
+  color:#d98ca0;
+  font-weight:bold;
+}
+
+.login-box .form-control{
+  border-radius:10px;
+  padding:12px;
+}
+
+.btn-account{
+  background:#e8a8b8;
+  color:white;
+  border:none;
+  padding:12px;
+  border-radius:10px;
+  font-weight:bold;
+}
+
+.btn-account:hover{
+  background:#d98ca0;
+  color:white;
+}
+
+.login-box a{
+  color:#d98ca0;
+  text-decoration:none;
+}
+
+.login-box a:hover{
+  text-decoration:underline;
+}
+
+/* 搜尋圖示 */
+
+.search-container{
+  position:relative;
+  display:flex;
+  align-items:center;
+  margin-right:15px;
+}
+
+.search-icon{
+  font-size:22px;
+  cursor:pointer;
+  color:#555;
+}
+
+/* 預設隱藏 */
+.search-box{
+  width:0;
+  opacity:0;
+  margin-left:10px;
+  border:none;
+  outline:none;
+  border-radius:20px;
+  padding:8px 12px;
+  transition:.4s;
+}
+
+/* 滑鼠碰到時展開 */
+.search-container:hover .search-box{
+  width:220px;
+  opacity:1;
+  border:1px solid #ddd;
+}
+      
+      /* Footer */
+      footer {
+        background: #111;
+        color: white;
+        text-align: center;
+        padding: 20px;
+      }
+      </style>
+      
+
+</head>
+<body>
+  <!-- 大螢幕展開，小螢幕收起 固定在畫面最上面-->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+ <a class="navbar-brand" href="#">
+  <img src="img/下載.png"
+       alt="Loun Edit"
+       height="45">
+</a>
+  
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse justify-content-end" id="nav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Store</a></li>
+          <li class="nav-item"><a class="nav-link" href="#service">Service</a></li>
+          <li class="nav-item"><a class="nav-link" href="#game" title="Design Bracelet"><i class="bi bi-palette"></i></a></li>
+          <li class="nav-item"><a class="nav-link" href="#login"><i class="bi bi-person-circle"></i></a></li>
+          <li class="nav-item dropdown">
+
+          <li class="nav-item search-container me-3">
+
+           <i class="bi bi-search search-icon"></i>
+
+            <input
+             type="text"
+             id="searchInput"
+             class="search-box"
+             placeholder="搜尋商品..."
+             onkeyup="searchProducts()">
+
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#cartCanvas">
+            <i class="bi bi-cart3"></i>
+            <span id="cartCount">0</span>
+           </a>
+          </li>
+            <a class="nav-link dropdown-toggle"
+              href="javascript:void(0)"
+              id="currencyText"
+              role="button"
+              data-bs-toggle="dropdown">
+              NT$
+            </a>
+
+          <ul class="dropdown-menu dropdown-menu-end">
+
+          <li>
+            <a class="dropdown-item"
+             href="javascript:void(0)"
+             onclick="changeCurrency('TWD')">
+             NT$ TWD
+             </a>
+          </li>
+
+          <li>
+            <a class="dropdown-item"
+             href="javascript:void(0)"
+            onclick="changeCurrency('USD')">
+            $ USD
+            </a>
+          </li>
+
+          <li>
+           <a class="dropdown-item"
+            href="javascript:void(0)"
+            onclick="changeCurrency('JPY')">
+            ¥ JPY
+           </a>
+          </li>
+
+          <li>
+           <a class="dropdown-item"
+            href="javascript:void(0)"
+            onclick="changeCurrency('KRW')">
+            ₩ KRW
+           </a>
+          </li>
+
+  </ul>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<!-- 跑馬燈-->
+  <div class="marquee-container">
+  <div class="marquee-text">
+    🎉 新會員首次購物享 95 折優惠｜消費滿 NT$999 享免運 🎉
+    🎉 新會員首次購物享 95 折優惠｜消費滿 NT$999 享免運 🎉
+  </div>
+</div>
+  
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div>
+      <h1>Loun edit</h1>
+      <p>Minimal Fashion Style</p>
+    </div>
+  </section>
+  
+  <!-- 品牌理念 -->
+  <section id="about">
+    <div class="about-banner">
+      <img src="img/品牌理念圖.png" alt="Loun Edit 品牌理念">
+
+      <h2>品牌理念｜About Us</h2>
+    </div>
+
+    <p class="about-subtitle">
+      Timeless Accessories For Everyday Moments
+    </p>
+
+    <div class="about-text">
+      <p>
+        Loun Edit 致力於打造兼具質感與日常風格的飾品選物空間。
+        我們相信，飾品不只是穿搭的點綴，更是展現個人品味與生活態度的重要元素。
+        
+        品牌名稱「Loun Edit」代表著對美感的細緻編輯與挑選。
+        我們精選各式耳環、項鍊、戒指與手鍊，希望透過簡約而富有設計感的飾品，陪伴每個人在不同場合中展現獨特魅力。
+        
+        無論是日常穿搭、重要約會，或是送給重要的人一份心意，Loun Edit 都希望成為您尋找理想飾品的首選。
+        
+        我們堅持品質、重視細節，並持續帶來更多兼具時尚與實用性的商品，讓每一次配戴都成為美好的體驗。</p>
+    </div>
+  </section>
+  
+  <!-- 產品 -->
+  <section id="products" class="bg-light">
+    <div class="container">
+      <h2 class="text-center mb-5">產品｜Products</h2>
+  
+      <div class="row">
+  
+        <div class="col-md-4 mb-4 product-item">
+          <div class="card">
+            <img src="img/首飾.jpg" class="card-img-top">
+            <div class="card-body text-center">
+              <h5>Eternal Bracelet</h5>
+              <p class="price" data-price="590">NT$590</p>
+              <button class="btn btn-account mt-2"onclick="addToCart('Eternal Bracelet',590)">加入購物車</button>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-md-4 mb-4 product-item">
+          <div class="card">
+            <img src="img/雙城戒指.jpg" class="card-img-top">
+            <div class="card-body text-center">
+              <h5>Serenity Ring</h5>
+              <p class="price" data-price="480">NT$480</p>
+              <button class="btn btn-account mt-2"onclick="addToCart('Serenity Ring',480)">加入購物車</button>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-md-4 mb-4 product-item">
+          <div class="card">
+            <img src="img/簡約戒指.jpg" class="card-img-top">
+            <div class="card-body text-center">
+              <h5>Pure Ring</h5>
+              <p class="price" data-price="590">NT$590</p>
+              <button class="btn btn-account mt-2"onclick="addToCart('Pure Ring',590)">加入購物車</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4  product-item">
+          <div class="card">
+            <img src="img/星星戒指.jpg" class="card-img-top">
+            <div class="card-body text-center">
+              <h5>Starlit Ring</h5>
+              <p class="price" data-price="468">NT$468</p>
+              <button class="btn btn-account mt-2"onclick="addToCart('Starlit Ring',468)">加入購物車</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4 product-item">
+          <div class="card">
+            <img src="img/日常戒指.jpg" class="card-img-top">
+            <div class="card-body text-center">
+              <h5>Whisper Ring</h5>
+              <p class="price" data-price="560">NT$560</p>
+              <button class="btn btn-account mt-2"onclick="addToCart('Whisper Ring',560)">加入購物車</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4 product-item">
+          <div class="card">
+            <img src="img/藍寶石項鍊.jpg" class="card-img-top">
+            <div class="card-body text-center">
+              <h5>Aurora Necklace</h5>
+              <p class="price" data-price="1880">NT$1880</p>
+              <button class="btn btn-account mt-2"onclick="addToCart('Aurora Necklace',1880)">加入購物車</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4 product-item">
+          <div class="card">
+            <img src="img/多珠項鍊.jpg" class="card-img-top">
+            <div class="card-body text-center">
+              <h5>Amour Necklace</h5>
+              <p class="price" data-price="980">NT$980</p>
+              <button class="btn btn-account mt-2"onclick="addToCart('Amour Necklace',980)">加入購物車</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4 product-item">
+          <div class="card">
+            <img src="img/愛心項鍊.jpg" class="card-img-top">
+            <div class="card-body text-center">
+              <h5>Pure Heart Necklace </h5>
+              <p class="price" data-price="790">NT$790</p>
+              <button class="btn btn-account mt-2"onclick="addToCart('Pure Heart Necklace ',790)">加入購物車</button>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="col-md-4 mb-4 product-item">
+          <div class="card">
+            <img src="img/u型項鍊.jpg" class="card-img-top">
+            <div class="card-body text-center">
+              <h5>Moonlight Necklace</h5>
+              <p class="price" data-price="880">NT$880</p>
+              <button class="btn btn-account mt-2"onclick="addToCart('Moonlight Necklace',880)">加入購物車</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4 product-item">
+          <div class="card">
+            <img src="img/珍珠項鍊.jpg" class="card-img-top">
+            <div class="card-body text-center">
+              <h5>Perle Necklace</h5>
+              <p class="price" data-price="1380">NT$1380</p>
+              <button class="btn btn-account mt-2"onclick="addToCart('Perle Necklace',1380)">加入購物車</button>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-4 mb-4 product-item">
+          <div class="card">
+            <img src="img/貝殼項鍊.jpg" class="card-img-top">
+            <div class="card-body text-center">
+              <h5>Aube Necklace</h5>
+              <p class="price" data-price="690">NT$690</p>
+              <button class="btn btn-account mt-2"onclick="addToCart('Aube Necklace',690)">加入購物車</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4 product-item">
+          <div class="card">
+            <img src="img/雙練輛練.jpg" class="card-img-top">
+            <div class="card-body text-center">
+              <h5>Silver Mist Necklace</h5>
+              <p class="price" data-price="880">NT$880</p>
+              <button class="btn btn-account mt-2"onclick="addToCart('Silver Mist Necklace',880)">加入購物車</button>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+
+<!-- 購車 -->
+  <div class="offcanvas offcanvas-end"
+     tabindex="-1"
+     id="cartCanvas">
+
+  <div class="offcanvas-header">
+    <h5>購物車</h5>
+
+    <button type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas">
+    </button>
+  </div>
+
+  <div class="offcanvas-body">
+
+    <div id="cartItems"></div>
+
+    <hr>
+
+    <p>商品金額：NT$<span id="subtotal">0</span></p>
+
+    <p>首購95折：NT$<span id="discount">0</span></p>
+
+    <p>運費：NT$<span id="shipping">60</span></p>
+
+    <h5>
+      總計：
+      NT$<span id="total">0</span>
+    </h5>
+
+    <button
+      class="btn btn-account w-100"
+      onclick="checkout()">
+      立即結帳
+    </button>
+
+  </div>
+</div>
+  
+ <!-- Store Information -->
+<section id="contact">
+  <div class="container">
+
+    <h2 class="text-center mb-5">門市資訊｜Store Information</h2>
+
+    <!-- 門市資訊卡片 -->
+    <div class="store-card">
+
+      <div class="row align-items-center">
+
+        <!-- 左側聯絡資訊 -->
+        <div class="col-lg-5">
+
+          <div class="store-contact">
+
+            <div class="contact-item">
+              <h5>📍 Address</h5>
+              <p>New Taipei City, Taiwan</p>
+            </div>
+
+            <div class="contact-item">
+              <h5>☎ Phone</h5>
+              <p>02-1234-5678</p>
+            </div>
+
+            <div class="contact-item">
+              <h5>✉ E-mail</h5>
+              <p>lounedit@gmail.com</p>
+            </div>
+
+            <div class="contact-item">
+              <h5>📷 Instagram</h5>
+              <p>@loun_edit</p>
+            </div>
+
+            <div class="contact-item">
+              <h5>🕒 Business Hours</h5>
+              <p>Mon-Sun 11:00 - 21:00</p>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- 右側門市照片 -->
+        <div class="col-lg-7">
+
+          <div class="store-image">
+            <img src="img/品牌門市.png"
+                 alt="Loun Edit Store"
+                 class="img-fluid rounded shadow">
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- 門市介紹（卡片外） -->
+    <div class="store-description">
+
+      <h4>Loun Edit Concept Store</h4>
+
+      <p class="store-slogan">
+        Timeless Accessories For Everyday Moments
+      </p>
+
+      <p>
+        歡迎走進 Loun Edit，探索兼具質感與日常風格的飾品選物空間。
+        我們以溫柔的粉色調與簡約設計打造舒適購物環境，希望每位顧客都能在這裡找到屬於自己的獨特魅力。
+        無論是日常穿搭、送禮選購，或是為自己挑選一件專屬飾品，Loun Edit 都期待陪伴您創造更多美好的生活時刻。
+      </p>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- After-Sales Service -->
+<section id="service" class="bg-light">
+  <div class="container">
+
+    <h2 class="text-center mb-5">售後服務｜After-Sales Service</h2>
+
+    <div class="service-content">
+
+      <p>
+        感謝您選購 Loun Edit 的商品。我們重視每位顧客的購物體驗，
+        若您收到商品後有任何問題，歡迎與我們聯繫。
+      </p>
+
+      <h4>商品退換貨</h4>
+      <ul>
+        <li>商品收到後 7 天內，如有非人為因素造成的瑕疵，可申請退換貨。</li>
+        <li>退換貨商品需保持全新狀態，並保留完整包裝、吊牌及贈品。</li>
+        <li>因個人喜好、尺寸不符或其他非商品瑕疵因素，運費需由買家自行負擔。</li>
+      </ul>
+
+      <h4>商品瑕疵處理</h4>
+
+      <p>若收到商品有以下情況：</p>
+
+      <ul>
+        <li>飾品損壞</li>
+        <li>配件缺漏</li>
+        <li>寄送錯誤商品</li>
+      </ul>
+
+      <p>
+        請於收到商品後 3 日內提供商品照片與訂單資訊，
+        我們將盡快協助處理。
+      </p>
+
+      <h4>飾品保養建議</h4>
+
+      <ul>
+        <li>避免接觸香水、酒精及化學清潔用品。</li>
+        <li>洗澡、游泳及運動時請取下飾品。</li>
+        <li>未配戴時請存放於乾燥處，避免陽光直射與潮濕環境。</li>
+      </ul>
+
+      <h4>客服聯繫</h4>
+
+      <p>
+        若有任何商品或訂單問題，歡迎透過網站聯絡表單或客服信箱與我們聯繫，
+        我們將於 1 至 3 個工作天內回覆您的訊息。
+      </p>
+
+      <p class="service-ending">
+        Loun Edit 感謝您的支持，期待為您帶來更美好的購物體驗。
+      </p>
+
+    </div>
+
+  </div>
+</section>
+
+<!--遊戲-->
+<section id="game" class="bg-light">
+
+<div class="container">
+
+<h2 class="text-center mb-5">
+小遊戲｜Design Your Bracelet
+</h2>
+
+<p class="text-center mb-4">
+使用 Loun Edit 經典元素打造專屬於你的手鍊
+</p>
+
+<div id="braceletCanvas">
+  
+
+  <img
+    src="img/空手練2.jpg"
+    class="bracelet-base"
+    id="braceletBase">
+
+  <div id="charmArea"></div>
+
+</div>
+
+</div>
+
+<div class="charm-box" id="charmBox"></div>
+
+<div class="text-center mb-5">
+
+<button
+class="btn btn-account"
+onclick="resetBracelet()">
+
+重新設計
+
+</button>
+
+</div>
+
+</section>
+
+<!-- 商品推薦小遊戲 -->
+<section id="recommend" class="bg-light">
+
+<div class="container">
+
+<p class="text-center mb-4">
+回答幾個問題，找出最適合你的飾品
+</p>
+
+<div class="login-box text-center">
+
+<h4 id="questionTitle">
+你平常喜歡什麼風格？
+</h4>
+
+<div id="answerArea">
+
+<button class="btn btn-account m-2"
+onclick="answerQuestion('simple')">
+簡約風
+</button>
+
+<button class="btn btn-account m-2"
+onclick="answerQuestion('sweet')">
+甜美風
+</button>
+
+<button class="btn btn-account m-2"
+onclick="answerQuestion('luxury')">
+高級感
+</button>
+
+</div>
+
+<div id="resultArea" style="display:none;">
+
+<img id="resultImage"
+src=""
+class="img-fluid rounded mb-3"
+style="max-width:300px;">
+
+<h4 id="resultName"></h4>
+
+<p id="resultText"></p>
+
+<button
+class="btn btn-account"
+id="buyBtn">
+加入購物車
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+  <!-- Account -->
+<section id="login" class="bg-light">
+  <div class="container">
+
+    <h2 class="text-center mb-5">帳戶｜Account</h2>
+
+    <div class="login-box">
+
+      <!-- 登入 -->
+      <div id="loginForm">
+
+        <h4 class="text-center mb-4">會員登入</h4>
+
+        <input type="text"
+               class="form-control mb-3"
+               placeholder="用戶名或電話號碼">
+
+        <input type="password"
+               class="form-control mb-3"
+               placeholder="密碼">
+
+        <button class="btn btn-account w-100"
+                onclick="loginSuccess()">
+          立即登入！
+        </button>
+
+        <p class="text-end mt-3">
+          <a href="#" onclick="showRegister()">
+            註冊帳號
+          </a>
+        </p>
+
+      </div>
+
+      <!-- 註冊 -->
+      <div id="registerForm" style="display:none;">
+
+        <h4 class="text-center mb-4">註冊帳號</h4>
+
+        <input type="text"
+               class="form-control mb-3"
+               placeholder="用戶名">
+
+        <input type="tel"
+               class="form-control mb-3"
+               placeholder="電話">
+
+        <input type="password"
+               class="form-control mb-3"
+               placeholder="密碼">
+
+        <input type="date"
+               class="form-control mb-3">
+
+        <div class="form-check mb-4 text-start">
+
+          <input class="form-check-input"
+                 type="checkbox"
+                 id="agreeNews">
+
+          <label class="form-check-label" for="agreeNews">
+            我願意接收 Loun Edit 飾品的最新消息、
+            優惠及服務推廣相關資訊
+          </label>
+
+        </div>
+
+        <button class="btn btn-account w-100"
+                onclick="registerSuccess()">
+          註冊
+        </button>
+
+        <p class="text-end mt-3">
+          <a href="#" onclick="showLogin()">
+            返回登入
+          </a>
+        </p>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+  
+  <!-- Footer -->
+  <footer>
+
+<h5>Loun Edit</h5>
+
+<p>
+Timeless Accessories For Everyday Moments
+</p>
+
+<div class="mb-3">
+
+<i class="bi bi-instagram"></i>
+
+<i class="bi bi-facebook mx-3"></i>
+
+<i class="bi bi-envelope"></i>
+
+</div>
+
+<p>
+© 2026 Loun Edit. All Rights Reserved.
+</p>
+
+</footer>
+  
+  <!-- JS -->
+  <!--導覽列滾動效果捲動頁面時切換 Navbar 樣式-->
+  <script>
+    window.addEventListener("scroll", function() {
+      let nav = document.querySelector(".navbar");
+      nav.classList.toggle("scrolled", window.scrollY > 50);
+    });
+
+    /* =========================
+   會員登入 / 註冊切換功能
+========================= */
+    function showRegister(){
+      document.getElementById("loginForm").style.display = "none";
+      document.getElementById("registerForm").style.display = "block";
+    }
+    
+    function showLogin(){
+      document.getElementById("registerForm").style.display = "none";
+      document.getElementById("loginForm").style.display = "block";
+    }
+    
+    function registerSuccess(){
+      alert("註冊成功！請登入您的帳戶");
+      showLogin();
+    }
+    
+    function loginSuccess(){
+      alert("歡迎登入！");
+    }
+
+    /* =========================
+   幣別轉換系統
+   TWD、USD、JPY、KRW
+========================= */
+    function changeCurrency(currency){
+
+  const rates = {
+    TWD: 1,
+    USD: 0.03,
+    JPY: 4.8,
+    KRW: 42
+  };
+
+  const symbols = {
+    TWD: "NT$",
+    USD: "$",
+    JPY: "¥",
+    KRW: "₩"
+  };
+
+  document.querySelectorAll(".price").forEach(price => {
+
+    const twdPrice =
+      parseFloat(price.dataset.price);
+
+    const convertedPrice =
+      Math.round(twdPrice * rates[currency]);
+
+    price.innerText =
+      symbols[currency] + convertedPrice;
+
+  });
+
+  document.getElementById("currencyText").innerText =
+    symbols[currency];
+}
+
+window.onload = function(){
+  changeCurrency('TWD');
+}
+
+/* =========================
+   購物車系統
+   加入商品、計算金額、
+   首購95折與免運判斷
+========================= */
+let cart = [];
+
+function addToCart(name,price){
+
+  cart.push({
+    name:name,
+    price:price
+  });
+
+  updateCart();
+
+  alert(name + " 已加入購物車");
+}
+
+function updateCart(){
+
+  let html="";
+
+  let subtotal=0;
+
+  cart.forEach(item=>{
+
+    html += `
+      <p>
+        ${item.name}
+        NT$${item.price}
+      </p>
+    `;
+
+    subtotal += item.price;
+  });
+
+  let discount =
+    Math.round(subtotal*0.05);
+
+  let shipping =
+    subtotal >= 999 ? 0 : 60;
+
+  let total =
+    subtotal-discount+shipping;
+
+  document.getElementById("cartItems").innerHTML =
+    html;
+
+  document.getElementById("subtotal").innerText =
+    subtotal;
+
+  document.getElementById("discount").innerText =
+    discount;
+
+  document.getElementById("shipping").innerText =
+    shipping;
+
+  document.getElementById("total").innerText =
+    total;
+
+  document.getElementById("cartCount").innerText =
+    cart.length;
+}
+
+function checkout(){
+
+  if(cart.length===0){
+
+    alert("購物車目前沒有商品");
+
+    return;
+  }
+
+  alert("🎉 下單成功！感謝您的購買 🎉");
+
+  cart=[];
+
+  updateCart();
+}
+
+/* =========================
+   商品搜尋功能
+   依商品名稱即時篩選
+========================= */
+function searchProducts(){
+
+  let keyword =
+    document.getElementById("searchInput")
+    .value
+    .toLowerCase();
+
+  let products =
+    document.querySelectorAll(".product-item");
+
+  products.forEach(item => {
+
+    let name =
+      item.querySelector("h5")
+      .innerText
+      .toLowerCase();
+
+    if(name.includes(keyword)){
+      item.style.display="block";
+    }else{
+      item.style.display="none";
+    }
+
+  });
+}
+
+function addCharm(src){
+
+  const area =
+    document.getElementById("charmArea");
+
+  if(area.children.length >= 10){
+    alert("最多只能放 10 個吊飾");
+    return;
+  }
+
+  const img =
+    document.createElement("img");
+
+  img.src = src;
+  img.className = "selectedCharm";
+
+  area.appendChild(img);
+
+  autoArrange();
+}
+
+/* =========================
+   吊飾自動排列功能
+   讓吊飾平均分布在手鍊上
+========================= */
+function autoArrange(){
+
+  const charms =
+    document.querySelectorAll("#charmArea img");
+
+  const charmWidth = 65;
+  const gap = -40;
+
+  const totalWidth =
+    charms.length * charmWidth +
+    (charms.length - 1) * gap;
+
+  const startX =
+    (450 - totalWidth) / 2;
+
+  charms.forEach((img,index)=>{
+
+    img.style.position = "absolute";
+
+    img.style.width = "200px";
+    img.style.height = "200px";
+
+    img.style.left =
+      (startX + index * (charmWidth + gap)) + "px";
+
+    img.style.top = "20px";
+
+  });
+
+}
+
+const charms = [
+
+"img/y.png",
+"img/a.png",
+"img/b.png",
+"img/c.png",
+"img/D.png",
+"img/e.png",
+"img/f.png",
+"img/g.png",
+"img/h.png",
+"img/i.png",
+"img/j.png",
+"img/k.png",
+"img/l.png",
+"img/m.png",
+"img/o.png",
+"img/p.png",
+"img/r.png",
+"img/s.png",
+"img/u.png",
+"img/v.png",
+"img/w.png",
+"img/x.png",
+"img/y.png",
+"img/z.png",
+
+
+];
+
+const charmBox =
+document.getElementById("charmBox");
+
+charms.forEach(src => {
+
+  const img = document.createElement("img");
+
+  img.src = src;
+  img.onclick = function(){
+  addCharm(src);
+};
+
+  charmBox.appendChild(img);
+
+});
+
+/* =========================
+   重新設計手鍊
+   清空所有已選吊飾
+========================= */
+function resetBracelet(){
+
+  document.getElementById("charmArea").innerHTML="";
+
+}
+
+/* 商品推薦小遊戲 */
+
+let currentQuestion = 0;
+
+let answers = [];
+
+const questions = [
+
+{
+title:"你平常喜歡什麼風格？",
+
+options:[
+["簡約風","simple"],
+["甜美風","sweet"],
+["高級感","luxury"]
+]
+},
+
+{
+title:"如果今天要出門，你最先注意的是？",
+
+options:[
+["整體穿搭","outfit"],
+["妝容細節","makeup"],
+["配件搭配","accessory"]
+]
+},
+
+{
+title:"收到禮物時，你最期待看到什麼？",
+
+options:[
+["精美包裝","package"],
+["卡片內容","message"],
+["禮物本身","gift"]
+]
+},
+
+];
+
+function answerQuestion(answer){
+
+answers.push(answer);
+
+currentQuestion++;
+
+if(currentQuestion >= questions.length){
+
+showResult();
+
+return;
+
+}
+
+showQuestion();
+
+}
+
+function showQuestion(){
+
+const q = questions[currentQuestion];
+
+document.getElementById("questionTitle").innerText =
+q.title;
+
+let html="";
+
+q.options.forEach(option=>{
+
+html += `
+
+<button
+class="btn btn-account m-2"
+onclick="answerQuestion('${option[1]}')">
+
+${option[0]}
+
+</button>
+
+`;
+
+});
+
+document.getElementById("answerArea").innerHTML =
+html;
+
+}
+
+function showResult(){
+
+document.getElementById("answerArea").style.display =
+"none";
+
+document.getElementById("resultArea").style.display =
+"block";
+
+let product;
+let price;
+let image;
+
+if(
+answers.includes("sweet")
+){
+
+product =
+"Pure Heart Necklace";
+
+price =
+790;
+
+image =
+"img/愛心項鍊.jpg";
+
+}
+else if(
+answers.includes("luxury")
+){
+
+product =
+"Aurora Necklace";
+
+price =
+1880;
+
+image =
+"img/藍寶石項鍊.jpg";
+
+}
+else{
+
+product =
+"Eternal Bracelet";
+
+price =
+590;
+
+image =
+"img/首飾.jpg";
+
+}
+
+document.getElementById("resultName").innerText =
+product;
+
+document.getElementById("resultText").innerText =
+"根據你的回答，這是最適合你的飾品！";
+
+document.getElementById("resultImage").src =
+image;
+
+document.getElementById("buyBtn").onclick =
+function(){
+
+addToCart(product,price);
+
+};
+
+}
+    </script>
+  
+
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    
+</body>
+</html>
+
